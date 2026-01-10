@@ -10,28 +10,59 @@
     <h1>Healthcare Symptom Checker</h1>
 
     <form method="POST">
-        <label>Fever?</label><input name="fever"><br>
-        <label>Cough?</label><input name="cough"><br>
-        <label>Breathing Difficulty?</label><input name="breathing"><br>
-        <label>Headache?</label><input name="headache"><br>
-        <label>Fatigue?</label><input name="fatigue"><br>
-        <label>Sore Throat?</label><input name="sore_throat"><br>
-        <label>Cold?</label><input name="cold"><br>
-        <label>Chest Pain?</label><input name="chest_pain"><br>
-        <label>Nausea?</label><input name="nausea"><br>
-        <label>Diarrhoea?</label><input name="diarrhoea"><br>
-        <label>Loss of Taste/Smell?</label><input name="taste_loss"><br>
+        <label>Fever?</label>
+        <select name="fever"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Cold?</label>
+        <select name="cold"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Cough?</label>
+        <select name="cough"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Sore Throat?</label>
+        <select name="sore_throat"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Headache?</label>
+        <select name="headache"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Fatigue?</label>
+        <select name="fatigue"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Nausea?</label>
+        <select name="nausea"><option value="no">No</option><option value="yes">Yes</option></select>
+
+        <label>Diarrhoea?</label>
+        <select name="diarrhoea"><option value="no">No</option><option value="yes">Yes</option></select>
 
         <button type="submit">Check Symptoms</button>
     </form>
 
     {% if condition %}
-        <div class="result">
-            <h2>{{ condition }}</h2>
-            <p>{{ advice }}</p>
-        </div>
+    <div class="result fade-in">
+        <h2>{{ condition }}</h2>
+        <p><strong>Medical Advice:</strong> {{ advice }}</p>
+
+        {% if traditional %}
+        <h3>Traditional / Home Remedies</h3>
+        <ul>
+            {% for item in traditional %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if ai_explanation %}
+        <h3>AI Suggestions</h3>
+        <p class="ai-box">{{ ai_explanation }}</p>
+        {% endif %}
+    </div>
     {% endif %}
+
+    <p class="disclaimer">
+        ⚠️ This application provides awareness only. Traditional remedies and AI suggestions do not replace professional medical advice.
+    </p>
 </div>
 
 </body>
 </html>
+

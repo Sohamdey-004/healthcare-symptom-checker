@@ -1,68 +1,83 @@
 """
 Healthcare Symptom Checker - Web Version
 
-Author: 
-Soham Dey
-Srijita Patra
-Abhradeep Adhikari
+Authors:
+- Soham Dey
+- Srijita Patra
+- Abhradeep Adhikari
 
-A Flask-based healthcare awareness application that analyzes
-user-reported symptoms and provides basic guidance.
+Description:
+Rule-based healthcare awareness system with traditional remedies
+and AI-generated suggestions using Groq.
 NOTE: This is NOT a medical diagnosis tool.
 """
 
 from flask import Flask, render_template, request
+from data import DISEASE_DATA
 from logger import log_event
+from ai_helper import generate_ai_explanation
 
 app = Flask(__name__)
 
 
-def analyze_symptoms(data):
-    """Rule-based symptom analysis (no loops used)."""
+def analyze_symptoms(user_symptoms):
+    """
+    Data-driven symptom analysis.
+    No disease logic is hard-coded.
+    """
+    for disease, info in DISEASE_DATA.items():
+        if all(user_symptoms.get(symptom) for symptom in info["symptoms"]):
+            return {
+                "condition": disease,
+                "advice": info["advice"],
+                "traditional": info["traditional"]
+            }
 
-    if data["fever"] and data["cough"] and data["breathing"] and data["taste_loss"]:
-        return "Possible COVID-19", "Isolate yourself and consult a doctor immediately."
-
-    if data["fever"] and data["headache"] and data["fatigue"]:
-        return "Viral Fever", "Take rest, stay hydrated, and consult a physician."
-
-    if data["cold"] and data["sore_throat"] and not data["fever"]:
-        return "Common Cold", "Warm fluids and rest are advised."
-
-    if data["chest_pain"] and data["breathing"]:
-        return "Emergency Condition", "Seek immediate medical attention."
-
-    if data["nausea"] and data["diarrhoea"]:
-        return "Stomach Infection", "Drink ORS and consult a healthcare provider."
-
-    return "Condition Unclear", "Please consult a healthcare professional."
+    return {
+        "condition": "Condition Unclear",
+        "advice": "Please consult a healthcare professional.",
+        "traditional": []
+    }
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    condition = None
-    advice = None
+    result = None
+    ai_text = None
 
     if request.method == "POST":
-        symptoms = {
+        user_symptoms = {
             "fever": request.form.get("fever") == "yes",
+            "cold": request.form.get("cold") == "yes",
             "cough": request.form.get("cough") == "yes",
-            "breathing": request.form.get("breathing") == "yes",
+            "sore_throat": request.form.get("sore_throat") == "yes",
             "headache": request.form.get("headache") == "yes",
             "fatigue": request.form.get("fatigue") == "yes",
-            "sore_throat": request.form.get("sore_throat") == "yes",
-            "cold": request.form.get("cold") == "yes",
-            "chest_pain": request.form.get("chest_pain") == "yes",
             "nausea": request.form.get("nausea") == "yes",
             "diarrhoea": request.form.get("diarrhoea") == "yes",
-            "taste_loss": request.form.get("taste_loss") == "yes",
         }
 
-        condition, advice = analyze_symptoms(symptoms)
-        log_event(symptoms, condition)
+        result = analyze_symptoms(user_symptoms)
 
-    return render_template("index.html", condition=condition, advice=advice)
+        # AI suggestion ALWAYS runs after clicking Check Symptoms
+        ai_text = generate_ai_explanation(
+            result["condition"],
+            [k for k, v in user_symptoms.items() if v]
+        )
+
+        log_event(user_symptoms, result["condition"])
+
+    return render_template(
+        "index.html",
+        condition=result["condition"] if result else None,
+        advice=result["advice"] if result else None,
+        traditional=result["traditional"] if result else None,
+        ai_explanation=ai_text
+    )
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
