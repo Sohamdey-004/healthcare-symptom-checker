@@ -20,13 +20,9 @@ The system is designed with:
 ## 🧱 Project Versions
 This repository contains **two versions** of the project to demonstrate development progression:
 
-### 🔹 Version 1 – CLI-Based Symptom Checker
-- File: `symptom_checker.py`
-- Terminal-based application
-- Rule-based logic for symptom analysis
-- Represents the **initial implementation**
 
-### 🔹 Version 2 – Web-Based Enhanced Application
+
+### 🔹 Version – Web-Based Enhanced Application
 - Built using **Flask**
 - Interactive web interface with **HTML & CSS**
 - Data-driven disease logic (no hard-coding)
@@ -56,5 +52,5 @@ This repository contains **two versions** of the project to demonstrate developm
 
 ---
 
-## 🧱 Project Structure
+
 
