@@ -1,35 +1,60 @@
 # 🩺 Healthcare Symptom Checker
 
-A web-based healthcare awareness application that helps users identify possible health conditions based on commonly reported symptoms. The system provides basic guidance using rule-based logic and focuses on accessibility, early awareness, and social impact.
+A data-driven healthcare awareness application designed to assist users in identifying possible health conditions based on reported symptoms. The project emphasizes accessibility, social impact, and responsible use of technology through rule-based analysis, traditional home remedies, and AI-assisted explanations.
 
-> ⚠️ **Disclaimer:** This application is NOT a medical diagnosis tool. It is designed only for educational and awareness purposes. Users must consult qualified healthcare professionals for medical advice.
-
----
-
-## 📌 Problem Statement
-Many individuals, especially in rural or low-resource areas, do not have immediate access to healthcare professionals. This lack of access can lead to delayed treatment, misinformation, or unnecessary panic due to limited health awareness.
+> ⚠️ **Disclaimer:** This application is intended for educational and awareness purposes only. It does not provide medical diagnosis or treatment. Users must consult qualified healthcare professionals for medical advice.
 
 ---
 
-## 💡 Solution Overview
-The Healthcare Symptom Checker allows users to enter common symptoms through a simple and user-friendly web interface. Based on predefined medical rules, the system suggests possible health conditions and provides basic precautionary advice.
+## 📌 Project Overview
+Access to basic healthcare information is limited for many individuals, especially in rural or low-resource environments. This project aims to provide **early health awareness** by helping users understand common symptoms and encouraging informed medical consultation.
 
-The project emphasizes:
-- Simplicity and ease of use  
-- Accessibility for non-technical users  
-- Transparency through rule-based logic  
-- Social responsibility in healthcare  
+The system is designed with:
+- Transparency (rule-based logic)
+- Cultural relevance (traditional remedies)
+- Modern assistance (AI-generated suggestions)
+- Ethical responsibility in healthcare technology
+
+---
+
+## 🧱 Project Versions
+This repository contains **two versions** of the project to demonstrate development progression:
+
+### 🔹 Version 1 – CLI-Based Symptom Checker
+- File: `symptom_checker.py`
+- Terminal-based application
+- Rule-based logic for symptom analysis
+- Represents the **initial implementation**
+
+### 🔹 Version 2 – Web-Based Enhanced Application
+- Built using **Flask**
+- Interactive web interface with **HTML & CSS**
+- Data-driven disease logic (no hard-coding)
+- Includes **traditional/home remedies**
+- AI-generated health suggestions using **Groq**
+- Represents the **final, professional version**
+
+---
+
+## 💡 Features
+- User-friendly symptom selection
+- Rule-based health condition identification
+- Traditional/home remedy suggestions
+- AI-assisted explanations for better understanding
+- Clean and modular code structure
+- Ethical healthcare disclaimers
 
 ---
 
 ## ⚙️ Technologies Used
 - **Python**
 - **Flask** (Web Framework)
-- **HTML** (Frontend Structure)
-- **CSS** (Frontend Styling)
+- **HTML & CSS** (Frontend)
+- **Groq API** (AI-Generated Explanations)
 - **Rule-Based Logic**
-- **File Logging** (for record keeping)
+- **Environment Variables** (Secure API handling)
 
 ---
 
 ## 🧱 Project Structure
+
