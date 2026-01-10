@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Healthcare Symptom Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Healthcare Symptom Checker</h1>
+
+    <form method="POST">
+        <label>Fever?</label><input name="fever"><br>
+        <label>Cough?</label><input name="cough"><br>
+        <label>Breathing Difficulty?</label><input name="breathing"><br>
+        <label>Headache?</label><input name="headache"><br>
+        <label>Fatigue?</label><input name="fatigue"><br>
+        <label>Sore Throat?</label><input name="sore_throat"><br>
+        <label>Cold?</label><input name="cold"><br>
+        <label>Chest Pain?</label><input name="chest_pain"><br>
+        <label>Nausea?</label><input name="nausea"><br>
+        <label>Diarrhoea?</label><input name="diarrhoea"><br>
+        <label>Loss of Taste/Smell?</label><input name="taste_loss"><br>
+
+        <button type="submit">Check Symptoms</button>
+    </form>
+
+    {% if condition %}
+        <div class="result">
+            <h2>{{ condition }}</h2>
+            <p>{{ advice }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
