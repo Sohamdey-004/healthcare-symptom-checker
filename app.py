@@ -4,6 +4,7 @@ Healthcare Symptom Checker - Web Version
 Author: 
 Soham Dey
 Srijita Patra
+Abhradeep Adhikari
 
 A Flask-based healthcare awareness application that analyzes
 user-reported symptoms and provides basic guidance.
