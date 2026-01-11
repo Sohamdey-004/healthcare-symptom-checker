@@ -18,7 +18,7 @@ The system is designed with:
 ---
 
 ## 🧱 Project Versions
-This repository contains **two versions** of the project to demonstrate development progression:
+This repository contains ** versions** of the project to demonstrate development progression:
 
 
 
