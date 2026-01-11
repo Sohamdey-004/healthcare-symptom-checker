@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Healthcare Symptom Checker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container">
-    <h1>Healthcare Symptom Checker</h1>
+<div class="app-container">
 
-    <form method="POST">
-        <label>Fever?</label>
-        <select name="fever"><option value="no">No</option><option value="yes">Yes</option></select>
+    <header class="header">
+        <h1>Healthcare Symptom Checker</h1>
+        <p>Rule-based healthcare awareness with traditional remedies and AI support</p>
+    </header>
 
-        <label>Cold?</label>
-        <select name="cold"><option value="no">No</option><option value="yes">Yes</option></select>
+    <section class="card">
+        <h2>Select Your Symptoms</h2>
 
-        <label>Cough?</label>
-        <select name="cough"><option value="no">No</option><option value="yes">Yes</option></select>
+        <form method="POST">
+            <div class="symptom-grid">
+                {% for symptom in symptoms %}
+                <label class="symptom-item">
+                    <input type="checkbox" name="{{ symptom }}" value="yes">
+                    {{ symptom.replace('_', ' ').title() }}
+                </label>
+                {% endfor %}
+            </div>
 
-        <label>Sore Throat?</label>
-        <select name="sore_throat"><option value="no">No</option><option value="yes">Yes</option></select>
-
-        <label>Headache?</label>
-        <select name="headache"><option value="no">No</option><option value="yes">Yes</option></select>
-
-        <label>Fatigue?</label>
-        <select name="fatigue"><option value="no">No</option><option value="yes">Yes</option></select>
-
-        <label>Nausea?</label>
-        <select name="nausea"><option value="no">No</option><option value="yes">Yes</option></select>
-
-        <label>Diarrhoea?</label>
-        <select name="diarrhoea"><option value="no">No</option><option value="yes">Yes</option></select>
-
-        <button type="submit">Check Symptoms</button>
-    </form>
+            <button type="submit" class="btn-primary">
+                Check Symptoms
+            </button>
+        </form>
+    </section>
 
     {% if condition %}
-    <div class="result fade-in">
-        <h2>{{ condition }}</h2>
+    <section class="card result-card">
+        <h2>Result</h2>
+
+        <p><strong>Possible Condition:</strong> {{ condition }}</p>
         <p><strong>Medical Advice:</strong> {{ advice }}</p>
 
         {% if traditional %}
@@ -53,14 +51,17 @@
 
         {% if ai_explanation %}
         <h3>AI Suggestions</h3>
-        <p class="ai-box">{{ ai_explanation }}</p>
+        <div class="ai-box">
+            {{ ai_explanation }}
+        </div>
         {% endif %}
-    </div>
+    </section>
     {% endif %}
 
-    <p class="disclaimer">
-        ⚠️ This application provides awareness only. Traditional remedies and AI suggestions do not replace professional medical advice.
-    </p>
+    <footer class="footer">
+        ⚠️ This tool provides healthcare awareness only and does not replace professional medical advice.
+    </footer>
+
 </div>
 
 </body>

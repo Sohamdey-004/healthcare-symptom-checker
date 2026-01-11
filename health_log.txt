@@ -17,3 +17,10 @@
 2026-01-11 00:52:59.646549 | Symptoms: {'fever': False, 'cold': False, 'cough': False, 'sore_throat': False, 'headache': False, 'fatigue': False, 'nausea': False, 'diarrhoea': False} | Result: Condition Unclear
 2026-01-11 00:53:28.545072 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': True, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
 2026-01-11 00:53:52.022085 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': True, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:47:56.391233 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:47:58.109422 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:47:59.396840 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:47:59.673648 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:50:42.027675 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 01:56:47.278672 | Symptoms: {'fever': True, 'cold': True, 'cough': True, 'sore_throat': True, 'headache': True, 'fatigue': False, 'nausea': True, 'diarrhoea': True} | Result: Common Cold
+2026-01-11 08:21:04.220793 | Symptoms: {'cold': True, 'diarrhoea': True, 'fatigue': True, 'fever': True, 'headache': True, 'nausea': True, 'sore_throat': False} | Result: Viral Fever
